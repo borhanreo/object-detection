@@ -58,21 +58,27 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     blob = cv2.dnn.blobFromImage(image, 0.007843, (300, 300), 127.5)
     net.setInput(blob)
     detections = net.forward()
-    for i in np.arange(0, detections.shape[2]):
-        confidence = detections[0, 0, i, 2]
+
+    # sort the indexes of the probabilities in descending order (higher
+    # probabilitiy first) and grab the top-5 predictions
+    idxs = np.argsort(detections[0])[::-1][:5]
+
+    # loop over the top-5 predictions and display them
+    for (i, idx) in enumerate(idxs):
+        confidence = detections[0, idx]
         if confidence > args["confidence"]:
             idx = int(detections[0, 0, i, 1])
-            box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
-            (startX, startY, endX, endY) = box.astype("int")
-            label = "{}: {:.2f}%".format(CLASSES[idx],
-                                         confidence * 100)
-            detected_objects.append(label)
-            print(label)
-            cv2.rectangle(image, (startX, startY), (endX, endY),
-                          COLORS[idx], 2)
-            y = startY - 15 if startY - 15 > 15 else startY + 15
-            cv2.putText(image, label, (startX, y),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
+            # box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+            # (startX, startY, endX, endY) = box.astype("int")
+            # label = "{}: {:.2f}%".format(CLASSES[idx],
+            #                              confidence * 100)
+            # detected_objects.append(label)
+            # print(label)
+            # cv2.rectangle(image, (startX, startY), (endX, endY),
+            #               COLORS[idx], 2)
+            # y = startY - 15 if startY - 15 > 15 else startY + 15
+            # cv2.putText(image, label, (startX, y),
+            #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
     # show the frame
     cv2.imshow("Frame", image)
     key = cv2.waitKey(1) & 0xFF
