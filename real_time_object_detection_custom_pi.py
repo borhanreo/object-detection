@@ -55,8 +55,8 @@ detected_objects = []
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     image = frame.array
     (h, w) = image.shape[:2]
-    # blob = cv2.dnn.blobFromImage(image, 0.007843, (224, 224), 127.5)
-    blob = cv2.dnn.blobFromImage(cv2.resize(image, (224, 224)), 1, (224, 224), (104, 117, 123))
+    blob = cv2.dnn.blobFromImage(image, 0.007843, (224, 224), 127.5)
+    # blob = cv2.dnn.blobFromImage(cv2.resize(image, (224, 224)), 1, (224, 224), (104, 117, 123))
     net.setInput(blob)
     detections = net.forward()
 
