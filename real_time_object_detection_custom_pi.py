@@ -48,7 +48,7 @@ camera = PiCamera()
 camera.resolution = (640, 480)
 # camera.resolution = (300, 300)
 camera.framerate = 10
-rawCapture = PiRGBArray(camera, size=(224, 224))
+rawCapture = PiRGBArray(camera, size=(640, 480))
 # rawCapture = PiRGBArray(camera, size=(300, 300))
 time.sleep(0.1)
 detected_objects = []
