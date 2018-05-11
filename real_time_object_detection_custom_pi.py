@@ -68,7 +68,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     for (i, idx) in enumerate(idxs):
         confidence = detections[0, idx]
         if confidence > args["confidence"]:
-            idx = int(detections[0, 0, i, 1])
+            idx = int(detections[0, idx])
             # box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             # (startX, startY, endX, endY) = box.astype("int")
             # label = "{}: {:.2f}%".format(CLASSES[idx],
