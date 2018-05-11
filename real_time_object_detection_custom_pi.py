@@ -68,7 +68,17 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     for (i, idx) in enumerate(idxs):
         confidence = detections[0, idx]
         if confidence > args["confidence"]:
-            idx = int(detections[0, idx])
+            confidence = int(detections[0, idx])
+
+            # draw the top prediction on the input image
+            if i == 0:
+                text = "Label: {}, {:.2f}%".format(CLASSES[idx], confidence * 100)
+                cv2.putText(image, text, (5, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+
+            # display the predicted label + associated probability to the console
+            print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1, CLASSES[idx], confidence))
+
+
             # box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             # (startX, startY, endX, endY) = box.astype("int")
             # label = "{}: {:.2f}%".format(CLASSES[idx],
