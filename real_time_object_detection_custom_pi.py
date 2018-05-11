@@ -76,7 +76,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
                 cv2.putText(image, text, (5, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
             # display the predicted label + associated probability to the console
-            print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1, CLASSES[idx], confidence))
+            # print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1, CLASSES[idx], confidence))
 
 
             # box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
