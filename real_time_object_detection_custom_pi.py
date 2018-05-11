@@ -55,8 +55,7 @@ detected_objects = []
 for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
     image = frame.array
     (h, w) = image.shape[:2]
-    blob = cv2.dnn.blobFromImage(image, 0.007843, (224, 224), 127.5)
-    # blob = cv2.dnn.blobFromImage(cv2.resize(image, (224, 224)), 1, (224, 224), (104, 117, 123))
+    blob = cv2.dnn.blobFromImage(image, 1, (224, 224), (104, 117, 123))
     net.setInput(blob)
     detections = net.forward()
 
@@ -76,20 +75,8 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
                 cv2.putText(image, text, (5, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
             # display the predicted label + associated probability to the console
-            # print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1, CLASSES[idx], confidence))
+            print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1, CLASSES[idx], confidence))
 
-
-            # box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
-            # (startX, startY, endX, endY) = box.astype("int")
-            # label = "{}: {:.2f}%".format(CLASSES[idx],
-            #                              confidence * 100)
-            # detected_objects.append(label)
-            # print(label)
-            # cv2.rectangle(image, (startX, startY), (endX, endY),
-            #               COLORS[idx], 2)
-            # y = startY - 15 if startY - 15 > 15 else startY + 15
-            # cv2.putText(image, label, (startX, y),
-            #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
     # show the frame
     cv2.imshow("Frame", image)
     key = cv2.waitKey(1) & 0xFF
@@ -100,4 +87,3 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     # if the `q` key was pressed, break from the loop
     if key == ord("q"):
         break
-
