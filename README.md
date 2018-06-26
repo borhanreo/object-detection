@@ -5,6 +5,7 @@ Realtime object recognition using the OpenCV 3.3 dnn module + pretrained MobileN
 [![Realtime object recognition](https://img.youtube.com/vi/LGUR4Rn_kWs/0.jpg)](https://www.youtube.com/watch?v=LGUR4Rn_kWs)
 
 ## Installation
+
 All the dependencies can be installed using `pip`. Just use the following command from the root directory of the project.
 ```bash
 pip3 install -r requirements.txt
@@ -13,6 +14,7 @@ pip3 install -r requirements.txt
 **NOTE:** At the time of this writing, `public.py` is broken. If you have a problem installing it, check this [workaround here](https://github.com/C-Aniruddh/realtime_object_recognition/issues/1).
 
 ## How to run this script?
+
 There are two options for video source:
 
  * Webcam
@@ -37,3 +39,17 @@ python3 real_time_object_detection.py --prototxt MobileNetSSD_deploy.prototxt.tx
 ```
 
 For any questions, create an issue in this repository.
+
+## Make SSD Model
+
+    git clone https://github.com/weiliu89/caffe.git
+    git checkout ssd
+    
+Install requirements from https://code.leftofthedot.com/mamun/caffemodel
+    
+    cp Makefile.config.example Makefile.config
+    make -j8 
+    export CAFFE_ROOT=/home/mamun/Idea/env/caffe
+    export PYTHONPATH=$CAFFE_ROOT/python:$PROTO_ROOT/python:$PYTHONPATH
+    mkdir $CAFFE_ROOT/models/VGGNet/
+    wget https://gist.githubusercontent.com/weiliu89/2ed6e13bfd5b57cf81d6/raw/758667b33d1d1ff2ac86b244a662744b7bb48e01/VGG_ILSVRC_16_layers_fc_reduced_deploy.prototxt -P $CAFFE_ROOT/models/VGGNet/
