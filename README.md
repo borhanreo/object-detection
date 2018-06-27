@@ -46,7 +46,7 @@ For any questions, create an issue in this repository.
     git clone https://github.com/weiliu89/caffe.git
     git checkout ssd
     
-Install requirements from https://code.leftofthedot.com/mamun/caffemodel
+Install requirements from https://github.com/mdmamunhasan/caffemodel
     
     cp Makefile.config.example Makefile.config
     make -j8 
