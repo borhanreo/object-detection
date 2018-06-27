@@ -75,11 +75,14 @@ Download VOC2007 and VOC2012 dataset. By default, we assume the data is stored i
 Create the LMDB file.
 
     cd $CAFFE_ROOT
-    # Create the trainval.txt, test.txt, and test_name_size.txt in data/VOC0712/
+
+Create the trainval.txt, test.txt, and test_name_size.txt in data/VOC0712/
+    
     ./data/VOC0712/create_list.sh
-    # You can modify the parameters in create_data.sh if needed.
-    # It will create lmdb files for trainval and test with encoded original image:
-    #   - $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_trainval_lmdb
-    #   - $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb
-    # and make soft links at examples/VOC0712/
+    
+You can modify the parameters in create_data.sh if needed. It will create lmdb files for trainval and test with encoded original image:
+- $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_trainval_lmdb
+- $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb
+and make soft links at examples/VOC0712/
+
     ./data/VOC0712/create_data.sh
