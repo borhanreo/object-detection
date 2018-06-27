@@ -7,6 +7,7 @@ Realtime object recognition using the OpenCV 3.3 dnn module + pretrained MobileN
 ## Installation
 
 All the dependencies can be installed using `pip`. Just use the following command from the root directory of the project.
+
 ```bash
 pip3 install -r requirements.txt
 ```
