@@ -55,6 +55,8 @@ Install requirements from https://code.leftofthedot.com/mamun/caffemodel
     make py
     make test -j8
     make runtest -j8
+    cd $CAFFE_ROOT/python
+    sudo pip install -r requirements.txt
     
 By default, we assume the model is stored in $CAFFE_ROOT/models/VGGNet/
     
