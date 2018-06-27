@@ -56,8 +56,13 @@ Install requirements from https://code.leftofthedot.com/mamun/caffemodel
     make test -j8
     make runtest -j8
     
+By default, we assume the model is stored in $CAFFE_ROOT/models/VGGNet/
+    
     mkdir $CAFFE_ROOT/models/VGGNet/
     wget https://gist.githubusercontent.com/weiliu89/2ed6e13bfd5b57cf81d6/raw/758667b33d1d1ff2ac86b244a662744b7bb48e01/VGG_ILSVRC_16_layers_fc_reduced_deploy.prototxt -P $CAFFE_ROOT/models/VGGNet/
+    
+Download VOC2007 and VOC2012 dataset. By default, we assume the data is stored in $HOME/data/
+    
     mkdir $HOME/data && cd $HOME/data
     wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
     wget http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtrainval_06-Nov-2007.tar
@@ -66,3 +71,15 @@ Install requirements from https://code.leftofthedot.com/mamun/caffemodel
     tar -xvf VOCtrainval_11-May-2012.tar
     tar -xvf VOCtrainval_06-Nov-2007.tar
     tar -xvf VOCtest_06-Nov-2007.tar
+    
+Create the LMDB file.
+
+    cd $CAFFE_ROOT
+    # Create the trainval.txt, test.txt, and test_name_size.txt in data/VOC0712/
+    ./data/VOC0712/create_list.sh
+    # You can modify the parameters in create_data.sh if needed.
+    # It will create lmdb files for trainval and test with encoded original image:
+    #   - $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_trainval_lmdb
+    #   - $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb
+    # and make soft links at examples/VOC0712/
+    ./data/VOC0712/create_data.sh
