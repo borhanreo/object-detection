@@ -33,6 +33,8 @@ KNOWN_DISTANCE = 24.0
 # paper is 12 inches wide
 KNOWN_WIDTH = 11.0
 
+IMAGE_PATHS = []
+
 # load the furst image that contains an object that is KNOWN TO BE 2 feet
 # from our camera, then find the paper marker in the image, and initialize
 # the focal length
