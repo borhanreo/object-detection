@@ -89,3 +89,29 @@ and make soft links at examples/VOC0712/
 
 
     ./data/VOC0712/create_data.sh
+    
+Train your model and evaluate the model on the fly.
+
+    # It will create model definition files and save snapshot models in:
+    #   - $CAFFE_ROOT/models/VGGNet/VOC0712/SSD_300x300/
+    # and job file, log file, and the python script in:
+    #   - $CAFFE_ROOT/jobs/VGGNet/VOC0712/SSD_300x300/
+    # and save temporary evaluation results in:
+    #   - $HOME/data/VOCdevkit/results/VOC2007/SSD_300x300/
+    # It should reach 77.* mAP at 120k iterations.
+    
+    sudo nano $CAFFE_ROOT/models/VGGNet/VOC0712/SSD_300x300 solver.prototxt
+    
+Replace solver_mode from GPU to CPU
+
+    python examples/ssd/ssd_pascal.py
+    
+    
+If you don't have time to train your model, you can download a pre-trained model at here.
+
+Evaluate the most recent snapshot.
+# If you would like to test a model you trained, you can do:
+python examples/ssd/score_ssd_pascal.py
+Test your model using a webcam. Note: press esc to stop.
+# If you would like to attach a webcam to a model you trained, you can do:
+python examples/ssd/ssd_pascal_webcam.py
