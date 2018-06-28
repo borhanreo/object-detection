@@ -111,8 +111,31 @@ Replace solver_mode from GPU to CPU
 If you don't have time to train your model, you can download a pre-trained model at here.
 
 Evaluate the most recent snapshot.
+
+## Install Cuda
+
+    sudo dpkg -i cuda-repo-ubuntu1710-9-2-local_9.2.88-1_amd64.deb
+    sudo apt-key add /var/cuda-repo-9-2-local/7fa2af80.pub
+    sudo apt-get update
+    sudo apt-get install cuda
+
+## Uninstall Cuda
+
+Uninstall just nvidia-cuda-toolkit
+
+    sudo apt-get remove nvidia-cuda-toolkit
+
+Uninstall nvidia-cuda-toolkit and it's dependencies
+
+    sudo apt-get remove --auto-remove nvidia-cuda-toolkit
+    
+remove the CUDA files in /usr/local/cuda-9.2
+
 # If you would like to test a model you trained, you can do:
+
 python examples/ssd/score_ssd_pascal.py
 Test your model using a webcam. Note: press esc to stop.
+
 # If you would like to attach a webcam to a model you trained, you can do:
+
 python examples/ssd/ssd_pascal_webcam.py
