@@ -10,7 +10,7 @@ def find_marker(image):
 
     # find the contours in the edged image
 
-    (cnts, _) = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    (_, cnts, _) = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     c = max(cnts, key=cv2.contourArea)
 
     return cv2.minAreaRect(c)
