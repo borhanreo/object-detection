@@ -32,7 +32,7 @@ KNOWN_WIDTH = 21.0
 # (the first image is the one we know the distance from camera.)
 IMAGE_PATHS = ["p1.jpg", "p2.jpg", "p3.jpg"]
 # load the image that contains an object that is KNOWN TO BE from our camera
-image = cv2.imread(IMAGE_PATHS[0])
+image = cv2.imread("images/" + IMAGE_PATHS[0])
 marker = find_marker(image)
 print(marker[1][0])
 focalLength = (marker[1][0] * KNOWN_DISTANCE) / KNOWN_WIDTH
