@@ -30,7 +30,7 @@ KNOWN_WIDTH = 21.0
 
 # initialize the list of images that we'll be using
 # (the first image is the one we know the distance from camera.)
-IMAGE_PATHS = ["D1e.jpg", "D-1e.jpg", "D2e.jpg"]
+IMAGE_PATHS = ["p1.jpg", "p2.jpg", "p3.jpg"]
 # load the image that contains an object that is KNOWN TO BE from our camera
 image = cv2.imread(IMAGE_PATHS[0])
 marker = find_marker(image)
