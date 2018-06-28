@@ -22,7 +22,7 @@ def distance_to_camera(knownWidth, focalLength, perWidth):
 
 
 # initialize the known distance from the camera to the object
-KNOWN_DISTANCE = 20.0
+KNOWN_DISTANCE = 200.0
 
 # initialize the known object width, which in this case, the piece of
 # paper is 21 cm wide
@@ -30,7 +30,7 @@ KNOWN_WIDTH = 21.0
 
 # initialize the list of images that we'll be using
 # (the first image is the one we know the distance from camera.)
-IMAGE_PATHS = ["p1.jpg", "p2.jpg", "p3.jpg"]
+IMAGE_PATHS = ["rsz_p1.jpg", "rsz_p2.jpg", "rsz_p3.jpg"]
 # load the image that contains an object that is KNOWN TO BE from our camera
 image = cv2.imread("images/" + IMAGE_PATHS[0])
 marker = find_marker(image)
@@ -41,7 +41,7 @@ print(focalLength)
 # loop over the images
 for imagePath in IMAGE_PATHS:
     # compute the distance to the paper from the camera
-    image = cv2.imread(imagePath)
+    image = cv2.imread("images/" + imagePath)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     marker = find_marker(image)
     CM = distance_to_camera(KNOWN_WIDTH, focalLength, marker[1][0])
