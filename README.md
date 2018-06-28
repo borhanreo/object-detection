@@ -135,7 +135,12 @@ Uninstall nvidia-cuda-toolkit and it's dependencies
 
     sudo apt-get remove --auto-remove nvidia-cuda-toolkit
     
-remove the CUDA files in /usr/local/cuda-9.2
+remove the CUDA files in /usr/local/cuda-9.2 
+
+    sudo apt-key del 7fa2af80
+    sudo rm -R /var/cuda-repo-9-2-local
+    sudo apt-key --keyring /tmp/test list
+    
 
 # If you would like to test a model you trained, you can do:
 
