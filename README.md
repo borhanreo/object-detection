@@ -114,10 +114,16 @@ Evaluate the most recent snapshot.
 
 ## Install Cuda
 
+Download cuda from https://developer.nvidia.com/cuda-downloads
+
     sudo dpkg -i cuda-repo-ubuntu1710-9-2-local_9.2.88-1_amd64.deb
     sudo apt-key add /var/cuda-repo-9-2-local/7fa2af80.pub
     sudo apt-get update
     sudo apt-get install cuda
+    
+Update cuda dir in Makefile.config 
+
+    CUDA_DIR := /usr/local/cuda-9.2
 
 ## Uninstall Cuda
 
