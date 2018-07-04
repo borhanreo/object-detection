@@ -44,6 +44,7 @@ For any questions, create an issue in this repository.
 ## Make SSD Model
 
     git clone https://github.com/weiliu89/caffe.git
+    cd caffe
     git checkout ssd
     
 Install requirements from https://github.com/mdmamunhasan/caffemodel
