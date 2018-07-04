@@ -52,6 +52,7 @@ For GPU
 For CPU
 
     git clone https://github.com/intel/caffe.git
+    sudo apt-get install cmake
     cd caffe
     
 Install requirements from https://github.com/mdmamunhasan/caffemodel
@@ -121,7 +122,7 @@ If you don't have time to train your model, you can download a pre-trained model
 Evaluate the most recent snapshot.
 
     ./build/tools/caffe train -solver models/intel_optimized_models/ssd/VGGNet/VOC0712/SSD_300x300/solver.prototxt \
-    -weights models/intel_optimized_models/ssd/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel
+    -weights models/intel_optimized_models/ssd/VGGNet/VGG_ILSVRC2016_SSD_300x300_iter_440000.caffemodel
 
 If you would like to test a model you trained, you can do:
 
