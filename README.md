@@ -43,9 +43,16 @@ For any questions, create an issue in this repository.
 
 ## Make SSD Model
 
+For GPU 
+
     git clone https://github.com/weiliu89/caffe.git
     cd caffe
     git checkout ssd
+    
+For CPU
+
+    git clone https://github.com/intel/caffe.git
+    cd caffe
     
 Install requirements from https://github.com/mdmamunhasan/caffemodel
     
@@ -113,6 +120,19 @@ If you don't have time to train your model, you can download a pre-trained model
 
 Evaluate the most recent snapshot.
 
+    ./build/tools/caffe train -solver models/intel_optimized_models/ssd/VGGNet/VOC0712/SSD_300x300/solver.prototxt \
+    -weights models/intel_optimized_models/ssd/VGGNet/VGG_ILSVRC_16_layers_fc_reduced.caffemodel
+
+If you would like to test a model you trained, you can do:
+
+    python examples/ssd/score_ssd_pascal.py
+
+If you would like to attach a webcam to a model you trained, you can do:
+
+    python examples/ssd/ssd_pascal_webcam.py
+    
+**Note**: press esc to stop.
+    
 ## Install Cuda
 
 Download cuda from https://developer.nvidia.com/cuda-downloads
@@ -143,13 +163,3 @@ remove the CUDA files in /usr/local/cuda-9.2
     sudo apt-key del 7fa2af80
     sudo rm -R /var/cuda-repo-9-2-local
     sudo apt-key --keyring /tmp/test list
-    
-
-# If you would like to test a model you trained, you can do:
-
-python examples/ssd/score_ssd_pascal.py
-Test your model using a webcam. Note: press esc to stop.
-
-# If you would like to attach a webcam to a model you trained, you can do:
-
-python examples/ssd/ssd_pascal_webcam.py
