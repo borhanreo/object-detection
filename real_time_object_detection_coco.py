@@ -31,8 +31,7 @@ args = vars(ap.parse_args())
 
 # initialize the list of class labels MobileNet SSD was trained to
 # detect, then generate a set of bounding box colors for each class
-rows = open(args["labels"]).read().strip().split("\n")
-CLASSES = [r[r.find(" ") + 1:].split(",")[0] for r in rows]
+CLASSES = open(args["labels"]).read().strip().split("\n")
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
 # load our serialized model from disk
