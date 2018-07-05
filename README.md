@@ -117,7 +117,7 @@ Replace solver_mode from GPU to CPU
     python examples/ssd/ssd_pascal.py
     
     
-If you don't have time to train your model, you can download a pre-trained model at here.
+If you don't have time to train your model, you can download a pre-trained model models_VGGNet_VOC0712_SSD_300x300.
 
 Evaluate the most recent snapshot.
 
