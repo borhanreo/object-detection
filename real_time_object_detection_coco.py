@@ -1,5 +1,4 @@
-# USAGE
-# python real_time_object_detection.py --prototxt MobileNetSSD_deploy.prototxt --model MobileNetSSD_deploy.caffemodel --source webcam
+# https://github.com/cocodataset/cocoapi/blob/master/PythonAPI/pycocoDemo.ipynb
 
 # import the necessary packages
 from imutils.video import VideoStream
@@ -83,7 +82,6 @@ while True:
 			# `detections`, then compute the (x, y)-coordinates of
 			# the bounding box for the object
 			idx = int(detections[0, 0, i, 1])
-			print(idx)
 			box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 			(startX, startY, endX, endY) = box.astype("int")
 
