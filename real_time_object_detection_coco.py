@@ -23,16 +23,16 @@ ap.add_argument("--model", required=True,
 	help="path to Caffe pre-trained model")
 ap.add_argument("--source", required=True, 
 	help="Source of video stream (webcam/host)")
-ap.add_argument("-c", "--confidence", type=float, default=0.2,
+ap.add_argument("-c", "--confidence", type=float, default=0,
 	help="minimum probability to filter weak detections")
+ap.add_argument("-l", "--labels", required=True,
+                help="path to ImageNet labels (i.e., syn-sets)")
 args = vars(ap.parse_args())
 
 # initialize the list of class labels MobileNet SSD was trained to
 # detect, then generate a set of bounding box colors for each class
-CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
-	"bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
-	"dog", "horse", "motorbike", "person", "pottedplant", "sheep",
-	"sofa", "train", "tvmonitor"]
+rows = open(args["labels"]).read().strip().split("\n")
+CLASSES = [r[r.find(" ") + 1:].split(",")[0] for r in rows]
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
 # load our serialized model from disk
@@ -84,6 +84,7 @@ while True:
 			# `detections`, then compute the (x, y)-coordinates of
 			# the bounding box for the object
 			idx = int(detections[0, 0, i, 1])
+			print(idx)
 			box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
 			(startX, startY, endX, endY) = box.astype("int")
 

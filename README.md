@@ -10,6 +10,9 @@ All the dependencies can be installed using `pip`. Just use the following comman
 
 ```bash
 pip3 install -r requirements.txt
+pip3 install -U scikit-image
+pip3 install -U cython
+pip3 install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 ```
 
 **NOTE:** At the time of this writing, `public.py` is broken. If you have a problem installing it, check this [workaround here](https://github.com/C-Aniruddh/realtime_object_recognition/issues/1).
