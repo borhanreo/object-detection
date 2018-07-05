@@ -12,6 +12,7 @@ All the dependencies can be installed using `pip`. Just use the following comman
 pip3 install -r requirements.txt
 pip3 install -U scikit-image
 pip3 install -U cython
+sudo apt-get install python3-tk
 pip3 install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 ```
 
