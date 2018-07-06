@@ -146,6 +146,9 @@ Download cuda from https://developer.nvidia.com/cuda-downloads
     sudo apt-key add /var/cuda-repo-9-2-local/7fa2af80.pub
     sudo apt-get update
     sudo apt-get install cuda
+    
+Force install
+    
     sudo dpkg -i --force-overwrite /var/cuda-repo-9-2-local/./nvidia-396_396.26-0ubuntu1_amd64.deb
     sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda
     
