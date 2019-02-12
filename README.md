@@ -5,7 +5,6 @@ Realtime object recognition using the OpenCV 3.3 dnn module + pretrained MobileN
 [![Realtime object recognition](https://img.youtube.com/vi/LGUR4Rn_kWs/0.jpg)](https://www.youtube.com/watch?v=LGUR4Rn_kWs)
 
 ## Installation
-
 All the dependencies can be installed using `pip`. Just use the following command from the root directory of the project.
 
 ```bash
@@ -15,7 +14,7 @@ pip3 install -U cython
 sudo apt-get install python3-tk
 pip3 install "git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&subdirectory=PythonAPI"
 ```
-
+if pip will python3 then you need to must use pip not pip3
 **NOTE:** At the time of this writing, `public.py` is broken. If you have a problem installing it, check this [workaround here](https://github.com/C-Aniruddh/realtime_object_recognition/issues/1).
 
 ## How to run this script?
